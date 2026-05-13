@@ -689,7 +689,7 @@ fn vmm_thread_rules(
         ),
         #[cfg(target_arch = "x86_64")]
         (libc::SYS_unlink, vec![]),
-        #[cfg(target_arch = "aarch64")]
+        #[cfg(any(target_arch = "aarch64", target_arch = "riscv64"))]
         (libc::SYS_unlinkat, vec![]),
         (libc::SYS_wait4, vec![]),
         (libc::SYS_write, vec![]),
@@ -831,7 +831,7 @@ fn vcpu_thread_rules(
         (libc::SYS_tkill, vec![]),
         #[cfg(target_arch = "x86_64")]
         (libc::SYS_unlink, vec![]),
-        #[cfg(target_arch = "aarch64")]
+        #[cfg(any(target_arch = "aarch64", target_arch = "riscv64"))]
         (libc::SYS_unlinkat, vec![]),
         (libc::SYS_write, vec![]),
         (libc::SYS_writev, vec![]),
